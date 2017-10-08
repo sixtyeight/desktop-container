@@ -3,8 +3,8 @@ FROM consol/centos-xfce-vnc:1.2.1
 ## Use root to install additional software
 USER 0
 
-## Install wget, OpenJDK8
-RUN yum -y install wget java-1.8.0-openjdk java-1.8.0-openjdk-devel \
+## Install gedit, wget, OpenJDK8
+RUN yum -y install gedit wget java-1.8.0-openjdk java-1.8.0-openjdk-devel \
     && yum clean all
 
 ## Install Eclipse Oxygen 1
