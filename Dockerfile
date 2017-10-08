@@ -3,8 +3,8 @@ FROM consol/centos-xfce-vnc:1.2.1
 ## Use root to install additional software
 USER 0
 
-## Install gedit, wget, OpenJDK8
-RUN yum -y install gedit wget java-1.8.0-openjdk java-1.8.0-openjdk-devel \
+## Install 7zip, gedit, wget, OpenJDK8
+RUN yum -y install p7zip p7zip-plugins install gedit wget java-1.8.0-openjdk java-1.8.0-openjdk-devel \
     && yum clean all
 
 ## Install Eclipse Oxygen 1
@@ -30,6 +30,10 @@ RUN tar -xf /tmp/squirrelsql.tar.gz -C /opt && rm /tmp/squirrelsql.tar.gz && chm
 
 ## Add OpenShift Commandline client
 COPY oc /usr/local/bin
+
+## Add RTC Eclipse plugin if available
+COPY install-rtc-client.sh RTC-*.zip /opt/
+RUN /opt/install-rtc-client.sh
 
 ## Dirty hack to remove the Desktop background 
 RUN rm /headless/.config/bg_sakuli.png
