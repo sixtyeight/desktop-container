@@ -13,10 +13,25 @@ RUN wget http://ftp.halifax.rwth-aachen.de/eclipse//technology/epp/downloads/rel
     tar -xf /tmp/eclipse.tar.gz -C /opt && \
     rm /tmp/eclipse.tar.gz
 
-## Add Eclipse Desktop launcher
-COPY eclipse.desktop /headless/Desktop/ 
+## Add Desktop launchers
+COPY *.desktop /headless/Desktop/ 
 
-## Remove Background the easy way
+## Add Camunda Modeler
+COPY camunda-modeler-1.10.0-linux-x64.tar.gz /tmp/camunda-modeler.tar.gz
+RUN tar -xf /tmp/camunda-modeler.tar.gz -C /opt && rm /tmp/camunda-modeler.tar.gz
+
+## Add SoapUI
+COPY SoapUI-5.3.0-linux-bin.tar.gz /tmp/soap-ui.tar.gz
+RUN tar -xf /tmp/soap-ui.tar.gz -C /opt && rm /tmp/soap-ui.tar.gz
+
+## Add SquirrelSQL Client
+COPY squirrelsql-3.8.0-optional.tar.gz  /tmp/squirrelsql.tar.gz
+RUN tar -xf /tmp/squirrelsql.tar.gz -C /opt && rm /tmp/squirrelsql.tar.gz && chmod ugo+x /opt/squirrelsql-3.8.0-optional/squirrel-sql.sh
+
+## Add OpenShift Commandline client
+COPY oc /usr/local/bin
+
+## Dirty hack to remove the Desktop background 
 RUN rm /headless/.config/bg_sakuli.png
 
 ## switch back to default user

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Name=SquirrelSQL Client
+Exec=/opt/squirrelsql-3.8.0-optional/squirrel-sql.sh
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Icon=/opt/squirrelsql-3.8.0-optional/icons/acorn.xpm
