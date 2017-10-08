@@ -1,6 +1,6 @@
 [Desktop Entry]
 Version=1.0
-Name=SquirrelSQL Client
+Name=SQuirreL SQL Client
 Exec=/opt/squirrelsql-3.8.0-optional/squirrel-sql.sh
 Terminal=false
 X-MultipleArgs=false
