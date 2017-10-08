@@ -4,4 +4,5 @@ Name=Camunda Modeler
 Exec=/opt/camunda-modeler/camunda-modeler
 Terminal=false
 X-MultipleArgs=false
+Icon=/opt/camunda-modeler/support/icon_128.png
 Type=Application
